@@ -5,7 +5,9 @@
     font-family: 'Mukta', sans-serif;
 }
 
-
+body {
+    overflow-x: hidden; /* Evita o scroll horizontal */
+}
 
 .mascara-form {
     visibility: hidden;
@@ -20,58 +22,60 @@
 header {
     display: flex;
     align-items: center;
-    gap: 30px;
+    justify-content: space-between; /* Ajusta o alinhamento dos itens */
+    padding: 10px 20px;
+    background-color: #333;
 }
 
 header a {
-    font-size: 24px;
+    font-size: 16px;
     color: white;
     cursor: pointer;
     text-decoration: none;
+    margin-left: 15px;
 }
 
-header a:hover{
+header a:hover {
     color: #C51111;
     transition: 0.5s color ease-in-out;
 }
+
 .logo-header {
-    height: 80px;
-    margin: 20px;
+    height: 60px; /* Ajustado para tamanhos menores */
 }
 
 .container {
     display: flex;
-    height: 100vh;
+    flex-direction: column; /* Coloca os itens em coluna para dispositivos móveis */
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
+    height: auto;
+    padding: 20px;
 }
 
 .background {
-    position: fixed;
+    position: absolute;
     z-index: -1;
     width: 100%;
     height: 100vh;
+    top: 0;
+    left: 0;
 }
 
 .conteudo-background {
-    height: auto;
-    width: auto;
-    min-width: 100%;
-    max-width: 100%;
-    position: fixed;
-    top: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover; /* Faz com que o vídeo preencha a tela */
 }
 
 .mascara-video {
     z-index: 2;
-    position: fixed;
+    position: absolute;
     top: 0;
     width: 100%;
     height: 100%;
     background: linear-gradient(109deg, rgba(10, 12, 16, 0.99) 15%, rgba(10, 12, 16, 0.7) 50%, rgba(10, 12, 16, 0.99) 85%);
 }
-
-
 
 button {
     font-weight: 600;
@@ -79,31 +83,34 @@ button {
     text-align: center;
     text-transform: uppercase;
     border: 0;
-    padding: 10px 0;
+    padding: 10px;
     border-radius: 3px;
     background-color: #C51111;
     width: 200px;
-    height: 50px;
     color: white;
     cursor: pointer;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .logo {
-    height: 200px;
+    height: 150px; /* Ajustado para tamanhos menores */
 }
 
 .mario {
-    height: 60%;
+    height: auto;
+    max-width: 100%; /* Garante que a imagem não ultrapasse o container */
+    margin: 20px 0;
 }
 
 p {
     color: white;
-    font-size: 20px;
+    font-size: 16px; /* Ajustado para tamanhos menores */
+    text-align: center;
+    margin: 10px 0;
 }
 
 .sobre-nos {
-    max-width: 40%;
+    text-align: center;
 }
 
 .fale-conosco {
@@ -113,29 +120,23 @@ p {
     background: white;
     padding: 20px;
     border-radius: 10px;
-    gap: 20px;
+    gap: 15px;
     left: -330px;
     transition: left 1s linear;
     z-index: 4;
-    /* transform: translateX(0); */
+    width: 300px; /* Ajustado para tamanhos menores */
 }
 
-input {
-    height: 40px;
+input, textarea {
+    width: 100%; /* Garante que os campos de entrada se ajustem ao tamanho do container */
     border-radius: 5px;
     border: 1px solid gray;
-    padding-left: 10px;
+    padding: 10px;
     outline-color: #18D80F;
 }
 
 textarea {
     height: 80px;
-    width: 300px;
-    border-radius: 5px;
-    border: 1px solid gray;
-    padding-left: 10px;
-    outline-color: #18D80F;
-    padding: 10px;
 }
 
 .whatsapp {
@@ -146,43 +147,35 @@ textarea {
 }
 
 .whatsapp img {
-    height: 60px;
+    height: 50px; /* Ajustado para tamanhos menores */
 }
 
-@media (max-width: 1000px) {
-    p {
-        display: none;
-    }
-
-    .caixa-mae {
-        flex-direction: column;
-        padding: 10px;
-    }
-
-    .caixa-principal {
-        width: 100%;
-        display: flex;
+/* Estilos para dispositivos móveis */
+@media (max-width: 600px) {
+    header {
         flex-direction: column;
         align-items: center;
     }
 
-    .imagem-mario-luigi {
-        max-width: 80vw;
-        height: auto;
+    .logo-header {
+        height: 50px;
     }
 
-    .header {
-        margin: 20px;
-        justify-content: center;
-
+    .container {
+        padding: 10px;
     }
 
-    .header img {
-        display: none;
+    .sobre-nos {
+        max-width: 100%;
     }
 
-    .header a {
-        font-size: 18px;
+    button {
+        width: 100%;
     }
 
+    .fale-conosco {
+        width: 90%; /* Ajuste para tamanhos menores */
+        left: 0;
+        right: 0;
+    }
 }
