@@ -22,7 +22,7 @@ body {
 header {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Ajusta o alinhamento dos itens */
+    justify-content: space-between;
     padding: 10px 20px;
     background-color: #333;
 }
@@ -41,15 +41,14 @@ header a:hover {
 }
 
 .logo-header {
-    height: 60px; /* Ajustado para tamanhos menores */
+    height: 60px;
 }
 
 .container {
     display: flex;
-    flex-direction: column; /* Coloca os itens em coluna para dispositivos móveis */
+    flex-direction: column; /* Alterado para melhorar a exibição em dispositivos móveis */
     align-items: center;
     justify-content: center;
-    height: auto;
     padding: 20px;
 }
 
@@ -57,15 +56,13 @@ header a:hover {
     position: absolute;
     z-index: -1;
     width: 100%;
-    height: 100vh;
-    top: 0;
-    left: 0;
+    height: 100%;
 }
 
 .conteudo-background {
-    height: 100%;
     width: 100%;
-    object-fit: cover; /* Faz com que o vídeo preencha a tela */
+    height: 100%;
+    object-fit: cover; /* Ajusta o vídeo para preencher a tela */
 }
 
 .mascara-video {
@@ -86,31 +83,33 @@ button {
     padding: 10px;
     border-radius: 3px;
     background-color: #C51111;
-    width: 200px;
     color: white;
     cursor: pointer;
     margin-top: 20px;
+    width: 100%; /* Ajustado para preencher o container em dispositivos móveis */
+    max-width: 200px; /* Tamanho máximo do botão */
 }
 
 .logo {
-    height: 150px; /* Ajustado para tamanhos menores */
+    height: 150px;
 }
 
 .mario {
     height: auto;
-    max-width: 100%; /* Garante que a imagem não ultrapasse o container */
+    max-width: 100%;
     margin: 20px 0;
 }
 
 p {
     color: white;
-    font-size: 16px; /* Ajustado para tamanhos menores */
+    font-size: 16px;
     text-align: center;
     margin: 10px 0;
 }
 
 .sobre-nos {
     text-align: center;
+    max-width: 90%; /* Ajusta a largura máxima em dispositivos móveis */
 }
 
 .fale-conosco {
@@ -124,11 +123,12 @@ p {
     left: -330px;
     transition: left 1s linear;
     z-index: 4;
-    width: 300px; /* Ajustado para tamanhos menores */
+    width: 90%; /* Ajuste para tamanhos menores */
+    max-width: 400px; /* Tamanho máximo do formulário */
 }
 
 input, textarea {
-    width: 100%; /* Garante que os campos de entrada se ajustem ao tamanho do container */
+    width: 100%;
     border-radius: 5px;
     border: 1px solid gray;
     padding: 10px;
@@ -147,35 +147,66 @@ textarea {
 }
 
 .whatsapp img {
-    height: 50px; /* Ajustado para tamanhos menores */
+    height: 50px;
 }
 
-/* Estilos para dispositivos móveis */
-@media (max-width: 600px) {
+/* Media Queries */
+@media (max-width: 768px) {
     header {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
+    }
+
+    header a {
+        font-size: 14px;
+        margin-left: 0;
+        margin-top: 10px;
     }
 
     .logo-header {
         height: 50px;
     }
 
-    .container {
-        padding: 10px;
+    .sobre-nos {
+        max-width: 90%; /* Ajusta a largura máxima em telas menores */
     }
 
-    .sobre-nos {
-        max-width: 100%;
+    .fale-conosco {
+        width: 80%; /* Ajuste para tamanhos menores */
+        left: 10%;
+        right: 10%;
+    }
+
+    .mario {
+        height: auto;
+        max-width: 80%;
     }
 
     button {
         width: 100%;
     }
+}
+
+@media (max-width: 480px) {
+    .logo-header {
+        height: 40px;
+    }
+
+    .logo {
+        height: 100px;
+    }
+
+    p {
+        font-size: 14px;
+    }
 
     .fale-conosco {
-        width: 90%; /* Ajuste para tamanhos menores */
-        left: 0;
-        right: 0;
+        width: 90%;
+        left: 5%;
+        right: 5%;
+    }
+
+    .whatsapp img {
+        height: 40px;
     }
 }
